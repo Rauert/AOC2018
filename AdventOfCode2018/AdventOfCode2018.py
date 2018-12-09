@@ -4,7 +4,8 @@ import AOC3
 import AOC4
 import AOC5
 import AOC6
-
+import AOC7
+import AOC8
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -35,8 +36,20 @@ if __name__ == "__main__":
     #aoc5.AOC5_2()
     #del aoc5
 
-    aoc6 = AOC6.AOC6("Inputs/AOC6_1.txt")
+    #aoc6 = AOC6.AOC6("Inputs/AOC6_1.txt")
     #aoc6 = AOC6.AOC6("Test/AOC6_1.txt")
-    aoc6.AOC6_1()
+    #aoc6.AOC6_1()
     #aoc6.AOC6_2()
-    del aoc6
+    #del aoc6
+
+    #aoc7 = AOC7.AOC7("Inputs/AOC7_1.txt")
+    #aoc7 = AOC7.AOC7("Test/AOC7_1.txt")
+    #aoc7.AOC7_1()
+    #aoc7.AOC7_2()
+    #del aoc7
+
+    aoc8 = AOC8.AOC8("Inputs/AOC8_1.txt")
+    #aoc8 = AOC8.AOC8("Test/AOC8_1.txt")
+    aoc8.AOC8_1()
+    aoc8.AOC8_2()
+    del aoc8
