@@ -116,7 +116,7 @@ class AOC6:
         #Find largest area
         largest = 0
         for a,v in self.areas.items():
-            print(a + "->" + str(v))
+            #print(a + "->" + str(v))
             if v > largest:
                 largest = v
 
@@ -125,7 +125,17 @@ class AOC6:
 
     def AOC6_2(self):
         now = time.time()
-
-        print("AOC6_2: " + str(ans))
+        max = 10000
+        #max = 32 #Testing
+        tot = 0
+        maxC = len(self.co[0])
+        for y in range(maxC):
+            for x in range(maxC):
+                sum = 0
+                for i in range(0,len(self.mCo),2):
+                    sum += abs(x - self.mCo[i]) + abs(y - self.mCo[i+1])
+                if sum < max:
+                    tot += 1
+        print("AOC6_2: " + str(tot))
         print("Time taken: " + str(time.time() - now))
 

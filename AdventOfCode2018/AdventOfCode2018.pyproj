@@ -27,9 +27,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AOC3.py" />
+    <Compile Include="AOC9.py" />
+    <Compile Include="AOC8.py" />
+    <Compile Include="AOC7.py" />
     <Compile Include="AOC6.py" />
     <Compile Include="AOC5.py" />
     <Compile Include="AOC4.py" />
+    <Compile Include="Node.py" />
     <Compile Include="Entry.py" />
     <Compile Include="Functs.py">
       <SubType>Code</SubType>

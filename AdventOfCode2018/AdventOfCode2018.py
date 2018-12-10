@@ -36,11 +36,11 @@ if __name__ == "__main__":
     #aoc5.AOC5_2()
     #del aoc5
 
-    #aoc6 = AOC6.AOC6("Inputs/AOC6_1.txt")
+    aoc6 = AOC6.AOC6("Inputs/AOC6_1.txt")
     #aoc6 = AOC6.AOC6("Test/AOC6_1.txt")
-    #aoc6.AOC6_1()
-    #aoc6.AOC6_2()
-    #del aoc6
+    aoc6.AOC6_1()
+    aoc6.AOC6_2()
+    del aoc6
 
     #aoc7 = AOC7.AOC7("Inputs/AOC7_1.txt")
     #aoc7 = AOC7.AOC7("Test/AOC7_1.txt")
@@ -48,8 +48,8 @@ if __name__ == "__main__":
     #aoc7.AOC7_2()
     #del aoc7
 
-    aoc8 = AOC8.AOC8("Inputs/AOC8_1.txt")
+    #aoc8 = AOC8.AOC8("Inputs/AOC8_1.txt")
     #aoc8 = AOC8.AOC8("Test/AOC8_1.txt")
-    aoc8.AOC8_1()
-    aoc8.AOC8_2()
-    del aoc8
+    #aoc8.AOC8_1()
+    #aoc8.AOC8_2()
+    #del aoc8
