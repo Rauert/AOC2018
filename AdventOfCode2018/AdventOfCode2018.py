@@ -7,6 +7,7 @@ import AOC6
 import AOC7
 import AOC8
 import AOC9
+import AOC10
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -63,7 +64,12 @@ if __name__ == "__main__":
     #aoc9 = AOC9.AOC9(21,6111)
 
 
-    aoc9 = AOC9.AOC9(471,7202600)
-    aoc9.AOC9_1()
+    #aoc9 = AOC9.AOC9(471,7202600)
+    #aoc9.AOC9_1()
     #aoc9.AOC9_2()
-    del aoc9
+    #del aoc9
+
+    aoc10 = AOC10.AOC10(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC10_1.txt")
+    #aoc10 = AOC10.AOC10(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC10_1.txt")
+    aoc10.AOC10()
+    del aoc10
