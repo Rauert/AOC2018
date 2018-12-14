@@ -10,7 +10,8 @@ import AOC9
 import AOC10
 import AOC11
 import AOC12
-import AOC13O
+import AOC13
+import AOC14
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -18,9 +19,9 @@ if __name__ == "__main__":
     #aoc1.AOC1_2_Opt()
     #del aoc1
 
-    #aoc2 = AOC2.AOC2("Inputs/AOC2_1.txt")
+    #aoc2 = AOC2.AOC2(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC2_1.txt")
     #aoc2.AOC2_1()
-    #aoc2.AOC2_2()
+    #aoc2.AOC2_2O()
     #del aoc2
 
     #aoc3 = AOC3.AOC3(r"C:\Users\michelle\python\AdventOfCode2018\AdventOfCode2018\Inputs\AOC3_1.txt")
@@ -89,8 +90,14 @@ if __name__ == "__main__":
     #aoc12.AOC12_2()
     #del aoc12
 
-    aoc13 = AOC13O.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC13_1.txt")
+    #aoc13 = AOC13O.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC13_1.txt")
     #aoc13 = AOC13.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC13_1.txt")
     #aoc13.AOC13_1()
-    aoc13.AOC13_2()
-    del aoc13
+    #aoc13.AOC13_2()
+    #del aoc13
+
+    aoc14 = AOC14.AOC14("077201")
+    #aoc14 = AOC14.AOC14("59414")
+    aoc14.AOC14_1()
+    aoc14.AOC14_2()
+    del aoc14

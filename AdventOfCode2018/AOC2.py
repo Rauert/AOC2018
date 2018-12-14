@@ -67,3 +67,32 @@ class AOC2:
                                 Ans = currline[0:x] + currline[x + 1:lineLength]
         print("AOC2_2: " + str(Ans))
         print("Time taken: " + str(time.time() - now))
+
+    #Optimised Day 2 part 2
+    def AOC2_2O(self):
+        now = time.time()
+        lines = Functs.importFile(self.inFile)
+        length = len(lines)
+        lineLength = len(lines[0]) - 1 #-1 to remove newline char
+        found = False
+        Ans = ""
+
+        i = -1
+        for cl in lines:
+            i += 1
+            for l in range(i,len(lines)):
+                dif = 0
+                index = 0
+                for j in range(lineLength):
+                    if cl[j] != lines[l][j]:
+                        dif += 1
+                        index = j
+                    if dif > 1:
+                        break
+                if dif == 1:
+                    #print(cl)
+                    #print(lines[l])
+                    print("AOC2_2: " + str(cl[0:index] + cl[index + 1:lineLength]))
+                    print("Time taken: " + str(time.time() - now))
+                    return
+       
