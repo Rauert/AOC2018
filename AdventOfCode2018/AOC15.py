@@ -87,7 +87,7 @@ class AOC15:
                                 if self.bfs((i[0],
                                              i[1]),
                                             ra[kk],
-                                            list(set(vs) - set(ob))) == False: ####Error cant use - on lists of lists
+                                            (set(vs) - set(ob))) == False: ####Error cant use - on lists of lists
                                     del ra[kk]
                         #Pick closest
                         closest = ra[len(ra)-1]

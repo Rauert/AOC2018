@@ -108,7 +108,10 @@ if __name__ == "__main__":
     #aoc15.AOC15_1()
     #aoc15.AOC15_2()
     #del aoc15
-
+    listA = [[0,1],[1,1],[2,1],[3,4]]
+    listB = [[1,1],[2,1]]
+    listC = [item for item in listA if item not in listB]
+    print(listC)
 
     a = [[1,2],[3,4]]
     b = [[1,2]]
