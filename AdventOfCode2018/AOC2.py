@@ -95,4 +95,3 @@ class AOC2:
                     print("AOC2_2: " + str(cl[0:index] + cl[index + 1:lineLength]))
                     print("Time taken: " + str(time.time() - now))
                     return
-       

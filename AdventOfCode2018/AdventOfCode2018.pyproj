@@ -22,22 +22,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AdventOfCode2018.py" />
-    <Compile Include="AOC14.py" />
+    <Compile Include="AOC10.py" />
+    <Compile Include="AOC11.py" />
+    <Compile Include="AOC12.py" />
     <Compile Include="AOC13.py" />
+    <Compile Include="AOC15.py" />
+    <Compile Include="AOC14.py" />
     <Compile Include="AOC2.py" />
     <Compile Include="AOC1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AOC3.py" />
-    <Compile Include="AOC10.py" />
-    <Compile Include="AOC11.py" />
-    <Compile Include="AOC12.py" />
     <Compile Include="AOC9.py" />
     <Compile Include="AOC8.py" />
     <Compile Include="AOC7.py" />
     <Compile Include="AOC6.py" />
     <Compile Include="AOC5.py" />
     <Compile Include="AOC4.py" />
+    <Compile Include="module1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Node.py" />
     <Compile Include="Entry.py" />
     <Compile Include="Functs.py">

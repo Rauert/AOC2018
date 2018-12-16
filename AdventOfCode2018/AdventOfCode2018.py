@@ -12,6 +12,7 @@ import AOC11
 import AOC12
 import AOC13
 import AOC14
+import AOC15
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -96,8 +97,20 @@ if __name__ == "__main__":
     #aoc13.AOC13_2()
     #del aoc13
 
-    aoc14 = AOC14.AOC14("077201")
+    #aoc14 = AOC14.AOC14("077201")
     #aoc14 = AOC14.AOC14("59414")
-    aoc14.AOC14_1()
-    aoc14.AOC14_2()
-    del aoc14
+    #aoc14.AOC14_1()
+    #aoc14.AOC14_2()
+    #del aoc14
+
+    #aoc15 = AOC15.AOC15("Inputs/AOC15_1.txt")
+    #aoc15 = AOC15.AOC15("Test/AOC15_1.txt")
+    #aoc15.AOC15_1()
+    #aoc15.AOC15_2()
+    #del aoc15
+
+
+    a = [[1,2],[3,4]]
+    b = [[1,2]]
+    c = list(set(a) - set(b))
+    print(c)
