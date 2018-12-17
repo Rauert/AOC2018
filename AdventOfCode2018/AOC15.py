@@ -3,6 +3,7 @@ import Functs
 
 class AOC15:
     lines = []
+    out = []
     vs = []
     u = []
     round = 0
@@ -10,18 +11,28 @@ class AOC15:
     def __init__(self, inFile):
         self.lines = Functs.importFile(inFile)
 
+    def print(self):
+        for y in range(len(self.out)):
+            for x in range(len(self.out[y])):
+                cr = self.out[y][x]
+                for i in self.u:
+                    if x == i[0] and y == i[1]:
+                        cr = i[3]
+                print(cr,end="")
+            #print()
+
     def bfs(self, c1, c2, coords):
         #https://stackoverflow.com/questions/20583878/python-check-if-coordinates-of-values-in-a-grid-connect-to-one-another
         def neighbours(cc):
             candidates = [(cc[0] - 1, cc[1]), (cc[0] + 1, cc[1]), (cc[0], cc[1] - 1), (cc[0], cc[1] + 1)]
             return [c for c in candidates if c in coords]
         bool = False
-        seen = set()
+        seen = []
         frontier = [c1]
 
         while not len(frontier) == 0 and bool == False:
             element = frontier.pop()
-            seen.add(element)
+            seen.append(element)
             if c2 in seen:
                 bool = True
             frontier.extend([n for n in neighbours(element) if not n in seen])
@@ -32,15 +43,18 @@ class AOC15:
         #Mortal Kombat!!
         while targetsRemain == True:
             for i in u:
+                self.print()
                 if i[3] != "d":
                     #scan for targets
                     t = []
+                    ti = [] #Target index
                     e = "e"
                     if i[3] == "e":
                         e = "g"
                     for j in u:
                         if i != j and j[3] == e:
                             t.append([j[0],j[1]])
+                            ti.append(u.index(j))
                     if len(t) == 0:
                         targetsRemain = False
                         return
@@ -54,7 +68,9 @@ class AOC15:
                             del aj[a]
                     for T in t:
                         if T in aj:
-                            vt.append(T)
+                            vt.append(u[ti[t.index(T)]])
+                    print(vt)
+                    print(u)
                     if len(vt) > 0:
                         attacked = True
                         ii = u.index(vt[0])
@@ -87,7 +103,7 @@ class AOC15:
                                 if self.bfs((i[0],
                                              i[1]),
                                             ra[kk],
-                                            (set(vs) - set(ob))) == False: ####Error cant use - on lists of lists
+                                            [item for item in vs if item not in ob]) == False: ####Error cant use - on lists of lists
                                     del ra[kk]
                         #Pick closest
                         closest = ra[len(ra)-1]
@@ -114,9 +130,7 @@ class AOC15:
                                 u[1][1] = movePos[1]
             self.round += 1
             sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
-
-
-
+            self.print()
 
     def AOC15_1(self):
         now = time.time()
@@ -137,6 +151,12 @@ class AOC15:
                     vs.append([x,y])
                     u.append([x,y,200,"g"])
 
+        self.out = self.lines.copy()
+        for l in range(len(self.out)):
+            self.out[l] = self.out[l].replace("E",".")
+            self.out[l] = self.out[l].replace("G",".")
+
+        self.print()
         self.combat(lines, vs, u)
 
         sumHP = 0

@@ -13,6 +13,7 @@ import AOC12
 import AOC13
 import AOC14
 import AOC15
+import AOC16
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -103,17 +104,28 @@ if __name__ == "__main__":
     #aoc14.AOC14_2()
     #del aoc14
 
+
     #aoc15 = AOC15.AOC15("Inputs/AOC15_1.txt")
     #aoc15 = AOC15.AOC15("Test/AOC15_1.txt")
+    #aoc15 = AOC15.AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC15_1.txt")
     #aoc15.AOC15_1()
     #aoc15.AOC15_2()
     #del aoc15
-    listA = [[0,1],[1,1],[2,1],[3,4]]
-    listB = [[1,1],[2,1]]
-    listC = [item for item in listA if item not in listB]
-    print(listC)
+    
+    #listA = [[0,1],[1,1],[2,1],[3,4]]
+    #listB = [[1,1],[2,1]]
+    #listC = [item for item in listA if item not in listB]
+    #print(listC)
 
-    a = [[1,2],[3,4]]
-    b = [[1,2]]
-    c = list(set(a) - set(b))
-    print(c)
+    #a = [[1,2],[3,4]]
+    #b = [[1,2]]
+    #c = list(set(a) - set(b))
+    #print(c)
+
+    aoc16 = AOC16.AOC16(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_1.txt",
+                        r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_2.txt")
+    aoc16.AOC16_1()
+    aoc16.AOC16_2()
+    del aoc16
+
+
