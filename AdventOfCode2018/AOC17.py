@@ -69,7 +69,7 @@ class AOC17:
                 self.grid[y][x] = "|"
             if self.grid[y+1][x] == "." or self.grid[y+1][x] == "|":
                 #self.q.append([x,y+1])
-                self.q.append([x,y])
+                if [x,y] not in self.q: self.q.append([x,y])
             elif self.grid[y][x+1] == "#": rb = True
 
             x = startX
@@ -79,25 +79,26 @@ class AOC17:
                 self.grid[y][x] = "|"
             if self.grid[y+1][x] == "." or self.grid[y+1][x] == "|":
                 #self.q.append([x,y+1])
-                self.q.append([x,y])
+                if [x,y] not in self.q: self.q.append([x,y])
             elif self.grid[y][x-1] == "#": lb = True
 
             if rb == True and lb == True:
                 while self.grid[y][x] != "#":
                     self.grid[y][x] = "~"
                     x += 1
-                self.q.append([500,1])
+                if [500,1] not in self.q: self.q.append([500,1])
 
     def count(self):
         sum = 0
-        rtn = False
+        #rtn = False
         for y in self.grid:
             for x in y:
                 if x == "~" or x == "|":
                     sum += 1
-        if sum == self.total: rtn = True
-        self.total = sum
-        return True
+        #if sum == self.total: rtn = True
+        #self.total = sum
+        #return True
+        return sum
 
     def AOC17_1(self):
         now = time.time()
@@ -136,7 +137,12 @@ class AOC17:
         while len(self.q)>0:
             xy = self.q.pop(0)
             self.run(xy[0],xy[1])
-            #self.print()
+            c = self.count()
+            print(c, len(self.q))
+            #if (c == 7582):
+                #print(self.q)
+                #self.print()
+                #break
         sum = 0
         for y in self.grid:
             for x in y:

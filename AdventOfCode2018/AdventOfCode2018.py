@@ -130,8 +130,10 @@ if __name__ == "__main__":
     #aoc16.AOC16_2()
     #del aoc16
 
-    aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC17_1.txt")
+    #aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC17_1.txt")
+    aoc17 = AOC17.AOC17("Inputs/AOC17_1.txt")
     #aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC17_1.txt")
+    #aoc17 = AOC17.AOC17("Test/AOC17_1.txt")
     aoc17.AOC17_1()
     #aoc17.AOC17_2()
     del aoc17
