@@ -14,6 +14,8 @@ import AOC13
 import AOC14
 import AOC15
 import AOC16
+import AOC17
+import AOC18
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -92,7 +94,7 @@ if __name__ == "__main__":
     #aoc12.AOC12_2()
     #del aoc12
 
-    #aoc13 = AOC13O.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC13_1.txt")
+    #aoc13 = AOC13.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC13_1.txt")
     #aoc13 = AOC13.AOC13(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC13_1.txt")
     #aoc13.AOC13_1()
     #aoc13.AOC13_2()
@@ -122,10 +124,20 @@ if __name__ == "__main__":
     #c = list(set(a) - set(b))
     #print(c)
 
-    aoc16 = AOC16.AOC16(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_1.txt",
-                        r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_2.txt")
-    aoc16.AOC16_1()
-    aoc16.AOC16_2()
-    del aoc16
+    #aoc16 = AOC16.AOC16(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_1.txt",
+    #                    r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC16_2.txt")
+    #aoc16.AOC16_1()
+    #aoc16.AOC16_2()
+    #del aoc16
 
+    aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC17_1.txt")
+    #aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC17_1.txt")
+    aoc17.AOC17_1()
+    #aoc17.AOC17_2()
+    del aoc17
 
+    #aoc18 = AOC18.AOC18(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC18_1.txt")
+    #aoc18 = AOC18.AOC18(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC18_1.txt")
+    #aoc18.AOC18_1()
+    #aoc18.AOC18_2()
+    #del aoc18

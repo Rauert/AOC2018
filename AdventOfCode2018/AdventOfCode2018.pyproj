@@ -24,6 +24,8 @@
     <Compile Include="AdventOfCode2018.py" />
     <Compile Include="AOC10.py" />
     <Compile Include="AOC11.py" />
+    <Compile Include="AOC18.py" />
+    <Compile Include="AOC17.py" />
     <Compile Include="AOC16.py" />
     <Compile Include="AOC12.py" />
     <Compile Include="AOC13.py" />
