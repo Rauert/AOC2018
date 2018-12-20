@@ -1,21 +1,5 @@
-import AOC1
-import AOC2
-import AOC3
-import AOC4
-import AOC5
-import AOC6
-import AOC7
-import AOC8
-import AOC9
-import AOC10
-import AOC11
-import AOC12
-import AOC13
-import AOC14
-import AOC15
-import AOC16
 import AOC17
-import AOC18
+import AOC19
 
 if __name__ == "__main__":
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
@@ -130,16 +114,39 @@ if __name__ == "__main__":
     #aoc16.AOC16_2()
     #del aoc16
 
+    #f = open(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Out\1.txt", "r").readlines()
+    #g = open(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Out\2.txt", "r").readlines()
+    #print(len(f), len(g))
+    #print(len(f[0]), len(g[0]))
+    #dif = []
+    #for y in range(len(f)):
+    #    for x in range(len(f[y])-1):
+    #        if f[y][x] != g[y][x]:
+    #            print("$", end="")
+    #            dif.append([x,y,f[y][x],g[y][x]])
+    #        else:
+    #            print(f[y][x], end="")
+    #    print()
+    #print(dif)
+    #for l in f:
+        #e = l.rstrip()
+        #print(e[346:len(e)])
+
     #aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC17_1.txt")
-    aoc17 = AOC17.AOC17("Inputs/AOC17_1.txt")
+    #aoc17 = AOC17.AOC17("Inputs/AOC17_1.txt")
     #aoc17 = AOC17.AOC17(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC17_1.txt")
     #aoc17 = AOC17.AOC17("Test/AOC17_1.txt")
-    aoc17.AOC17_1()
-    #aoc17.AOC17_2()
-    del aoc17
+    #aoc17.AOC17()
+    #del aoc17
 
-    #aoc18 = AOC18.AOC18(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC18_1.txt")
+           #aoc18 = AOC18.AOC18(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC18_1.txt")
     #aoc18 = AOC18.AOC18(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC18_1.txt")
     #aoc18.AOC18_1()
     #aoc18.AOC18_2()
     #del aoc18
+
+    aoc19 = AOC19.AOC19(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC19_1.txt")
+    #aoc19 = AOC19.AOC19(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC19_1.txt")
+    aoc19.AOC19_1()
+    #aoc19.AOC19_2()
+    del aoc19

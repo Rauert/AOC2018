@@ -9,6 +9,7 @@ class AOC17:
     grid = []
     maxY = 0
     maxX = 0
+    minY = 10000
     total = -1
     q = []
 
@@ -100,7 +101,8 @@ class AOC17:
         #return True
         return sum
 
-    def AOC17_1(self):
+    #Very Slow
+    def AOC17(self):
         now = time.time()
 
         for l in self.lines:
@@ -112,10 +114,13 @@ class AOC17:
                 if d[1] > self.maxX: self.maxX = d[1]
                 if d[2] > self.maxY: self.maxY = d[2]
                 if d[3] > self.maxY: self.maxY = d[3]
+                if d[2] < self.minY: self.minY = d[2]
+                if d[3] < self.minY: self.minY = d[3]
             else:
                 if d[1] > self.maxY: self.maxY = d[1]
                 if d[2] > self.maxX: self.maxX = d[2]
                 if d[3] > self.maxX: self.maxX = d[3]
+                if d[1] < self.minY: self.minY = d[1]
         self.maxX += 1
         self.maxY += 1
         self.grid = [["." for x in range(self.maxX)] for y in range(self.maxY)]
@@ -143,17 +148,17 @@ class AOC17:
                 #print(self.q)
                 #self.print()
                 #break
-        sum = 0
-        for y in self.grid:
-            for x in y:
-                if x == "~" or x == "|":
-                    sum += 1
-        self.print()
-        print("AOC17_1: Result:", sum)
+        sumW = 0
+        sumL = 0
+        for y in range(self.minY,len(self.grid)):
+            for x in range(len(self.grid[y])):
+                if self.grid[y][x] == "~":
+                    sumW += 1
+                elif self.grid[y][x] == "|":
+                    sumL += 1
+        #self.print()
+        print("AOC17_1: Result:", sumW + sumL)
+        print("AOC17_2: Result:", sumW)
+        print(sumL)
         print("Time taken: " + str(time.time() - now))
 
-    def AOC17_2(self):
-        now = time.time()
- 
-        print("AOC17_2: Result: ")
-        print("Time taken: " + str(time.time() - now))
