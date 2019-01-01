@@ -24,6 +24,10 @@
     <Compile Include="AdventOfCode2018.py" />
     <Compile Include="AOC10.py" />
     <Compile Include="AOC11.py" />
+    <Compile Include="AOC22.py" />
+    <Compile Include="AOC25.py" />
+    <Compile Include="AOC24.py" />
+    <Compile Include="AOC23.py" />
     <Compile Include="AOC19.py" />
     <Compile Include="AOC18.py" />
     <Compile Include="AOC17.py" />
@@ -36,6 +40,8 @@
     <Compile Include="AOC1.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AOC20.py" />
+    <Compile Include="AOC21.py" />
     <Compile Include="AOC3.py" />
     <Compile Include="AOC9.py" />
     <Compile Include="AOC8.py" />

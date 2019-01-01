@@ -1,7 +1,41 @@
-import AOC17
-import AOC19
+import AOC20
+import AOC21
+import AOC22
+import AOC23
+import AOC24
+import AOC25
 
 if __name__ == "__main__":
+    #aoc = AOC22.AOC22(False)
+    #aoc.AOC22_1()
+    #aoc.AOC22_2()
+    #del aoc
+    
+    #aoc = AOC25.AOC25("Inputs/AOC25_1.txt")
+    #aoc = AOC25.AOC25("Test/AOC25_1.txt")
+    #aoc.AOC25_1()
+    #aoc.AOC25_2()
+    #del aoc
+    
+    aoc = AOC24.AOC24(False)
+    aoc.AOC24_1()
+    #aoc.AOC24_2()
+    del aoc
+    
+    #aoc = AOC23.AOC23("Inputs/AOC23_1.txt")
+    #aoc.AOC23_1()
+    #aoc.AOC23_2()
+    #del aoc
+    
+    #aoc = AOC21.AOC21("Inputs/AOC21_1.txt")
+    #aoc.AOC21()
+    #aoc.AOC21_2()
+    #del aoc
+
+    #aoc = AOC20.AOC20("Inputs/AOC20_1.txt")
+    #aoc.AOC20(False)
+    #del aoc
+    
     #aoc1 = AOC1.AOC1("Inputs/AOC1_1.txt")
     #aoc1.AOC1_1()
     #aoc1.AOC1_2_Opt()
@@ -145,8 +179,8 @@ if __name__ == "__main__":
     #aoc18.AOC18_2()
     #del aoc18
 
-    aoc19 = AOC19.AOC19(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC19_1.txt")
+    #aoc19 = AOC19.AOC19(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC19_1.txt")
     #aoc19 = AOC19.AOC19(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC19_1.txt")
-    aoc19.AOC19_1()
+    #aoc19.AOC19_1()
     #aoc19.AOC19_2()
-    del aoc19
+    #del aoc19

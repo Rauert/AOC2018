@@ -129,6 +129,11 @@ class AOC15:
                                 u[1][0] = movePos[0]
                                 u[1][1] = movePos[1]
             self.round += 1
+            #COULD BE ERROR
+            #
+            #
+            # TRY u = sorted(u , key=lambda k: [k[1], k[0]])
+            # Check elsewhere
             sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
             self.print()
 
