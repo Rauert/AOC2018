@@ -6,10 +6,10 @@ import AOC24
 import AOC25
 
 if __name__ == "__main__":
-    #aoc = AOC22.AOC22(False)
-    #aoc.AOC22_1()
+    aoc = AOC22.AOC22(False)
+    aoc.AOC22_1()
     #aoc.AOC22_2()
-    #del aoc
+    del aoc
     
     #aoc = AOC25.AOC25("Inputs/AOC25_1.txt")
     #aoc = AOC25.AOC25("Test/AOC25_1.txt")
@@ -17,12 +17,13 @@ if __name__ == "__main__":
     #aoc.AOC25_2()
     #del aoc
     
-    aoc = AOC24.AOC24(False)
-    aoc.AOC24_1()
+    #aoc = AOC24.AOC24(False)
+    #aoc.AOC24_1()
     #aoc.AOC24_2()
-    del aoc
+    #del aoc
     
     #aoc = AOC23.AOC23("Inputs/AOC23_1.txt")
+    #aoc = AOC23.AOC23(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC23_1.txt")
     #aoc.AOC23_1()
     #aoc.AOC23_2()
     #del aoc
