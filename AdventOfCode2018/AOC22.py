@@ -10,14 +10,14 @@ class AOC22:
     el = [] #Erosion level
     gi = [] #Geological Index - [".","=","|"]
     giv = [] #GI value - [0,1,2]
-    offset = 10
+    offset = 50
 
     def __init__(self, test):
         if test == True:
             self.depth = 510
             self.target = [10,10]
             self.offset = 10
-            #self.target = [2,2]
+            #self.target = [2,2] #Super simple example for debugging
             #self.offset = 3
         else:
             self.depth = 6969
@@ -84,18 +84,10 @@ class AOC22:
                     else:
                         edges[a] = {b:7}
                     for dx, dy in ((x, y+1), (x, y-1), (x+1, y), (x-1, y)):
-                        #if a == (1, 0, 1): print(dx, dy)
-                        if 0 <= dx < xLen and 0 <= dy < yLen:
+                         if 0 <= dx < xLen and 0 <= dy < yLen:
                             if a[2] in validItems[self.giv[dy][dx]]:
-                                #if a == (1, 0, 1): print(i,dx, dy, validItems[self.giv[dy][dx]])
                                 edges[a][(dx,dy,a[2])] = 1
-        #print(self.target)
-        print(xLen*yLen*2)
-        #print(len(nodes))
-        #print(len(edges))
-        #for ii, jj in edges.items():
-            #if ii == (1, 0, 1): print(ii, jj)
-            #print(ii, jj)
+        
         #Run dijkstra
         #https://stackoverflow.com/questions/30431495/dijkstra-algorithm-python
         start = (0,0,0)
@@ -110,14 +102,13 @@ class AOC22:
             if current == end: break
             if current in edges:
                 for neighbour, distance in edges[current].items():
-                    #print(neighbour, distance)
                     if neighbour not in visited:
-                        #print(neighbour)
                         newDist = currDist + distance
-                        heapq.heappush(pq, (newDist, neighbour))
-                        #print(len(pq))
+                        if (newDist, neighbour) not in pq:
+                            heapq.heappush(pq, (newDist, neighbour))
 
         #https://stackoverflow.com/questions/22897209/dijkstras-algorithm-in-python
+        #Errors on the -2 and -1 lines
         #unvisited = {node: None for node in nodes} #using None as +inf
         #visited = {}
         #current = (0,0,0)
