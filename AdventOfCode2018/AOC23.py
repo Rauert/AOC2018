@@ -169,7 +169,9 @@ class AOC23:
                             count += 1
                     if count > max:
                         max = count
-                        best = [x,y,z]
+                        best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
+                    elif count == max and abs(self.best[0]+x) + abs(self.best[1]+y) + abs(self.best[2]+z) < abs(self.best[0]) + abs(self.best[1]) + abs(self.best[2]):
+                        best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
         
         print(best, max)
         self.best = best
@@ -185,10 +187,10 @@ class AOC23:
                 count += 1
         print(count)
 
-#aoc = AOC23.AOC23("Inputs/AOC23_1.txt")
-aoc = AOC23(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC23_1.txt")
+aoc = AOC23("Inputs/AOC23_1.txt")
+#aoc = AOC23(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC23_1.txt")
 aoc.AOC23_1()
 #aoc.testPoint(11353177, 58282550, 21041575)
-#aoc.AOC23_2()
-aoc.AOC23_2A()
+aoc.AOC23_2()
+#aoc.AOC23_2A()
 del aoc
