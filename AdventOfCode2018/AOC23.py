@@ -151,31 +151,31 @@ class AOC23:
         now = time.time()
         factor = 1000000
 
-        #for _ in range(7):
-        dataR = self.reduce(factor)
-        self.best = [self.best[0]*10,self.best[1]*10,self.best[2]*10]
-        best = []
-        max = -1
+        for _ in range(7):
+            dataR = self.reduce(factor)
+            self.best = [self.best[0]*10,self.best[1]*10,self.best[2]*10]
+            best = []
+            max = -1
 
-        for z in range(-50,50):
-            print(z)
-            for y in range(-50,50):
-                for x in range(-50,50):
-                    count = 0
-                    for r in dataR:
-                        #print(x,y,z,(abs(r[0] - (self.best[0]+x)) + abs(r[1] - (self.best[1]+y)) + abs(r[2] - (self.best[2]+z))) - r[3])
-                        #if (abs(r[0] - (self.best[0]+x)) + abs(r[1] - (self.best[1]+y)) + abs(r[2] - (self.best[2]+z))) - r[3] <= 0: #WRONG comparing manhatten distance to linear.
-                        if math.sqrt((r[0] - (self.best[0]+x))*(r[0] - (self.best[0]+x)) + (r[1] - (self.best[1]+y))*(r[1] - (self.best[1]+y)) + (r[2] - (self.best[2]+z))*(r[2] - (self.best[2]+z))) <= r[3]:
-                            count += 1
-                    if count > max:
-                        max = count
-                        best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
-                    elif count == max and abs(self.best[0]+x) + abs(self.best[1]+y) + abs(self.best[2]+z) < abs(self.best[0]) + abs(self.best[1]) + abs(self.best[2]):
-                        best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
+            for z in range(-50,50):
+                print(z)
+                for y in range(-50,50):
+                    for x in range(-50,50):
+                        count = 0
+                        for r in dataR:
+                            #print(x,y,z,(abs(r[0] - (self.best[0]+x)) + abs(r[1] - (self.best[1]+y)) + abs(r[2] - (self.best[2]+z))) - r[3])
+                            #if (abs(r[0] - (self.best[0]+x)) + abs(r[1] - (self.best[1]+y)) + abs(r[2] - (self.best[2]+z))) - r[3] <= 0: #WRONG comparing manhatten distance to linear.
+                            if math.sqrt((r[0] - (self.best[0]+x))*(r[0] - (self.best[0]+x)) + (r[1] - (self.best[1]+y))*(r[1] - (self.best[1]+y)) + (r[2] - (self.best[2]+z))*(r[2] - (self.best[2]+z))) <= r[3]:
+                                count += 1
+                        if count > max:
+                            max = count
+                            best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
+                        elif count == max and abs(self.best[0]+x) + abs(self.best[1]+y) + abs(self.best[2]+z) < abs(self.best[0]) + abs(self.best[1]) + abs(self.best[2]):
+                            best = [self.best[0]+x,self.best[1]+y,self.best[2]+z]
         
-        print(best, max)
-        self.best = best
-        factor = factor / 10
+            print(best, max)
+            self.best = best
+            factor = factor / 10
 
         print("AOC23_2: Result:", self.best)
         print("Time taken: " + str(time.time() - now))
@@ -190,7 +190,7 @@ class AOC23:
 aoc = AOC23("Inputs/AOC23_1.txt")
 #aoc = AOC23(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC23_1.txt")
 aoc.AOC23_1()
-#aoc.testPoint(11353177, 58282550, 21041575)
-aoc.AOC23_2()
+aoc.testPoint(15144450, 52900000, 20944439)
+#aoc.AOC23_2()
 #aoc.AOC23_2A()
 del aoc
