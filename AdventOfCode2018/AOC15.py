@@ -4,18 +4,18 @@ import Functs
 class AOC15:
     lines = []
     out = []
-    vs = []
-    u = []
+    #vs = []
+    #u = []
     round = 0
 
     def __init__(self, inFile):
         self.lines = Functs.importFile(inFile)
 
-    def print(self):
+    def print(self, u):
         for y in range(len(self.out)):
             for x in range(len(self.out[y])):
                 cr = self.out[y][x]
-                for i in self.u:
+                for i in u:
                     if x == i[0] and y == i[1]:
                         cr = i[3]
                 print(cr,end="")
@@ -43,7 +43,7 @@ class AOC15:
         #Mortal Kombat!!
         while targetsRemain == True:
             for i in u:
-                self.print()
+                #self.print(u)
                 if i[3] != "d":
                     #scan for targets
                     t = []
@@ -61,7 +61,7 @@ class AOC15:
                     #Can attack?
                     attacked = False
                     vt = [] #Valid Targets
-                    sorted(t , key=lambda k: [k[1], k[0]])
+                    t = sorted(t , key=lambda k: [k[1], k[0]])
                     aj = [[i[0]+1,i[1]],[i[0]-1,i[1]],[i[0],i[1]+1],[i[0],i[1]-1]] #Adjacent cells
                     for a in range(3,0,-1):
                         if aj[a] not in vs: #Invalid location
@@ -129,24 +129,15 @@ class AOC15:
                                 u[1][0] = movePos[0]
                                 u[1][1] = movePos[1]
             self.round += 1
-            #COULD BE ERROR
-            #
-            #
-            # TRY u = sorted(u , key=lambda k: [k[1], k[0]])
-            # Check elsewhere
-            sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
-            self.print()
+            u = sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
+            self.print(u)
 
-    def AOC15_1(self):
-        now = time.time()
-        lines = self.lines
-        vs = self.vs
-        u = self.u
-
-        #Setup
-        for y in range(len(lines)):
-            for x in range(len(lines[y])):
-                val = lines[y][x]
+    def setup(self):
+        vs = []
+        u = []
+        for y in range(len(self.lines)):
+            for x in range(len(self.lines[y])):
+                val = self.lines[y][x]
                 if val == ".":
                     vs.append([x,y])
                 elif val == "E":
@@ -155,13 +146,30 @@ class AOC15:
                 elif val == "G":
                     vs.append([x,y])
                     u.append([x,y,200,"g"])
+        return u,vs
+
+    def AOC15_1(self):
+        now = time.time()
+        lines = self.lines
+        #vs = []
+        #u = []
+
+        #Setup
+        u,vs = self.setup()
 
         self.out = self.lines.copy()
         for l in range(len(self.out)):
             self.out[l] = self.out[l].replace("E",".")
             self.out[l] = self.out[l].replace("G",".")
 
-        self.print()
+        #look up/down/left/right for enemy, attack if there
+        #Else scan for targets, if targets any still alive, find adjacent locations
+        #for nearest to farthest.
+        #   Check if reachable
+        #   Find for shortest path/s
+        #   Make step
+
+        self.print(u)
         self.combat(lines, vs, u)
 
         sumHP = 0
@@ -176,3 +184,10 @@ class AOC15:
 
         print("AOC15_2: ")
         print("Time taken: " + str(time.time() - now))
+
+#aoc15 = AOC15.AOC15("Inputs/AOC15_1.txt")
+#aoc15 = AOC15.AOC15("Test/AOC15_1.txt")
+aoc15 = AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC15_1.txt")
+aoc15.AOC15_1()
+#aoc15.AOC15_2()
+del aoc15

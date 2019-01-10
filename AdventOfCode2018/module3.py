@@ -1,3 +1,6 @@
+#Day 23 code example:
+#https://www.reddit.com/r/adventofcode/comments/a8s17l/2018_day_23_solutions/
+
 import sys,re, Functs
 from queue import PriorityQueue
 
@@ -23,4 +26,4 @@ while not q.empty():
   if count > maxCount:
     result = dist
     maxCount = count
-print(result)
+print(result, maxCount)

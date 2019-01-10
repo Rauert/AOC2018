@@ -6,10 +6,10 @@ import AOC24
 import AOC25
 
 if __name__ == "__main__":
-    aoc = AOC22.AOC22(False)
-    aoc.AOC22_1()
+    #aoc = AOC22.AOC22(False)
+    #aoc.AOC22_1()
     #aoc.AOC22_2()
-    del aoc
+    #del aoc
     
     #aoc = AOC25.AOC25("Inputs/AOC25_1.txt")
     #aoc = AOC25.AOC25("Test/AOC25_1.txt")

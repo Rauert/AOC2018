@@ -1,3 +1,6 @@
+#Day 17 example code:
+#https://www.reddit.com/r/adventofcode/comments/a6wpup/2018_day_17_solutions/
+
 #!/usr/bin/python3
 
 data = []
