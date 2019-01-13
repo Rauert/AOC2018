@@ -74,6 +74,7 @@ class AOC15:
         frontierDist = [0]
 
         while not len(frontier) == 0 and bool == False:
+            print(len(frontier))
             element = frontier.pop(0)
             dist = frontierDist.pop(0)
             seen.append(element)
@@ -102,10 +103,27 @@ class AOC15:
             frontier.extend([n for n in neighbours(element) if not n in seen])
         return seen
 
+    def attack(self,i,u,t,ti):
+        aj = [[i[0],i[1]+1],[i[0]+1,i[1]],[i[0]-1,i[1]],[i[0],i[1]-1]] #Adjacent cells in reverse reading order
+        lowHP = 201
+        target = -1
+        attacked = False
+        for a in range(len(aj)):
+            if aj[a] in t: #If a target is adjacent
+                tIndex = ti[t.index(aj[a])]
+                print(u[tIndex],tIndex, u[tIndex], "is adjacent")
+                if u[tIndex][2] <= lowHP:
+                    target = tIndex
+                    lowHP = u[tIndex][2]
+        if target != -1: #Attack
+            u[target][2] -= 3
+            if u[target][2] <= 0:
+                u[target][3] = "d"
+            attacked = True
+            print(i, "attacks", u[target])
+        return attacked
+
     def combat(self, lines, u):
-        ######################################
-        #If move can still attack if in range#
-        ######################################
         targetsRemain = True
         u = sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
         #Mortal Kombat!!
@@ -130,24 +148,7 @@ class AOC15:
                         return
 
                     #Can attack?
-                    aj = [[i[0],i[1]+1],[i[0]+1,i[1]],[i[0]-1,i[1]],[i[0],i[1]-1]] #Adjacent cells in reverse reading order
-                    lowHP = 201
-                    target = -1
-                    for a in range(len(aj)):
-                        if aj[a] in t: #If a target is adjacent
-                            tIndex = ti[t.index(aj[a])]
-                            print(u[tIndex],tIndex, u[tIndex], "is adjacent")
-                            if u[tIndex][2] <= lowHP:
-                                target = tIndex
-                                lowHP = u[tIndex][2]
-                    if target != -1: #Attack
-                        u[target][2] -= 3
-                        if u[target][2] <= 0:
-                            u[target][3] = "d"
-                        print(i, "attacks", u[target])
-                        #print(vt)
-                        #print(u)
-                    else: #Try to Move
+                    if self.attack(i,u,t,ti) == False: #Else try to Move
                         t = sorted(t , key=lambda k: [k[1], k[0]])
                         ra = [] #Cells in range
                         vt = [] #Valid Targets
@@ -204,6 +205,8 @@ class AOC15:
                                 print(coord, "moves to", step)
                                 i[0] = step[0] #Take step
                                 i[1] = step[1]
+                                #Try to attack
+                                self.attack(i,u,t,ti)
                 print()
 
             self.round += 1
@@ -262,8 +265,8 @@ class AOC15:
         print("AOC15_2: ")
         print("Time taken: " + str(time.time() - now))
 
-#aoc15 = AOC15.AOC15("Inputs/AOC15_1.txt")
-aoc15 = AOC15("Test/AOC15_2.txt")
+aoc15 = AOC15("Inputs/AOC15_1.txt")
+#aoc15 = AOC15("Test/AOC15_7.txt")
 #aoc15 = AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC15_1.txt")
 aoc15.AOC15_1()
 #aoc15.AOC15_2()
