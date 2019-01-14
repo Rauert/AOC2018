@@ -8,6 +8,7 @@ class AOC15:
     vs = [] #Valid states/coords
     #u = []
     round = 0
+    elfDied = False
 
     def __init__(self, inFile):
         self.lines = Functs.importFile(inFile)
@@ -72,19 +73,20 @@ class AOC15:
         seenDist = []
         frontier = [c1]
         frontierDist = [0]
-
+        #print(c1,c2)
+        #print(coords)
         while not len(frontier) == 0 and bool == False:
-            print(len(frontier))
             element = frontier.pop(0)
             dist = frontierDist.pop(0)
             seen.append(element)
             seenDist.append(dist)
             if c2 in seen:
                 bool = True
-            nextCoords = [n for n in neighbours(element) if not n in seen]
+            nextCoords = [n for n in neighbours(element) if not n in seen if not n in frontier]
             for i in nextCoords:
                 frontierDist.append(dist + 1)
             frontier.extend(nextCoords)
+            #print(nextCoords)
             #print(frontier)
             #print(frontierDist)
         return seenDist[seen.index(c2)]
@@ -103,7 +105,7 @@ class AOC15:
             frontier.extend([n for n in neighbours(element) if not n in seen])
         return seen
 
-    def attack(self,i,u,t,ti):
+    def attack(self,i,u,t,ti,attackBonus=0):
         aj = [[i[0],i[1]+1],[i[0]+1,i[1]],[i[0]-1,i[1]],[i[0],i[1]-1]] #Adjacent cells in reverse reading order
         lowHP = 201
         target = -1
@@ -111,29 +113,35 @@ class AOC15:
         for a in range(len(aj)):
             if aj[a] in t: #If a target is adjacent
                 tIndex = ti[t.index(aj[a])]
-                print(u[tIndex],tIndex, u[tIndex], "is adjacent")
+                #print(u[tIndex],tIndex, u[tIndex], "is adjacent")
                 if u[tIndex][2] <= lowHP:
                     target = tIndex
                     lowHP = u[tIndex][2]
         if target != -1: #Attack
-            u[target][2] -= 3
+            if i[3] == "e":
+                u[target][2] -= 3 + attackBonus
+            else:
+                u[target][2] -= 3
             if u[target][2] <= 0:
+                if u[target][3] == "e": self.elfDied = True
+                u[target][2] = 0
                 u[target][3] = "d"
             attacked = True
-            print(i, "attacks", u[target])
+            #print(i, "attacks", u[target])
         return attacked
 
-    def combat(self, lines, u):
+    def combat(self, u, attackBonus=0, partTwo=False):
         targetsRemain = True
+        self.round = 0
         u = sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
         #Mortal Kombat!!
         while targetsRemain == True:
-            print("Start round", self.round+1)
-            print(u)
+            #print("Start round", self.round+1)
+            #print(u)
             for i in u:
                 #self.print(u)
                 if i[3] != "d":
-                    print(i)
+                    #print(i)
                     #scan for targets
                     t = [] #Targets
                     ti = [] #Target index
@@ -148,7 +156,8 @@ class AOC15:
                         return
 
                     #Can attack?
-                    if self.attack(i,u,t,ti) == False: #Else try to Move
+                    if self.attack(i,u,t,ti,attackBonus) == False: #Else try to Move
+                        if partTwo == True and self.elfDied == True: return
                         t = sorted(t , key=lambda k: [k[1], k[0]])
                         ra = [] #Cells in range
                         vt = [] #Valid Targets
@@ -180,16 +189,16 @@ class AOC15:
                                 ra = sorted(ra, key=lambda k: [k[1], k[0]], reverse=True)
                                 closest = ra[0]
                                 dist = self.bfsDist([i[0],i[1]],ra[0],reachableCoords)
-                                print(i, "to", closest, "takes",dist)
+                                #print(i, "to", closest, "takes",dist)
                                 for ii in range(1,len(ra)):
                                     cDist = self.bfsDist([i[0],i[1]],ra[ii],reachableCoords)
-                                    print(i, "to", ra[ii], "takes",cDist)
+                                    #print(i, "to", ra[ii], "takes",cDist)
                                     if cDist <= dist:
                                         dist = cDist
                                         closest = ra[ii]
                                 #Move
                                 #Find shortest path/s. take one step.
-                                print(i, "moves towards", closest)
+                                #print(i, "moves towards", closest)
                                 #Check each of the 4 adjacent squares distance to target in reverse reading order
                                 #lowest is winner.
                                 aj = [[i[0],i[1]+1],[i[0]+1,i[1]],[i[0]-1,i[1]],[i[0],i[1]-1]] #Adjacent cells in reverse reading order
@@ -198,22 +207,23 @@ class AOC15:
                                 step = []
                                 for coord in aj:
                                     currDist = self.bfsDist(coord,closest,reachableCoords)
-                                    print(coord, "to", closest, "takes", currDist)
+                                    #print(coord, "to", closest, "takes", currDist)
                                     if currDist <= maxDist:
                                         maxDist = currDist
                                         step = coord
-                                print(coord, "moves to", step)
+                                #print(coord, "moves to", step)
                                 i[0] = step[0] #Take step
                                 i[1] = step[1]
                                 #Try to attack
-                                self.attack(i,u,t,ti)
-                print()
+                                self.attack(i,u,t,ti,attackBonus)
+                                if partTwo == True and self.elfDied == True: return
+                #print()
 
             self.round += 1
             u = sorted(u , key=lambda k: [k[1], k[0]]) #Ensures reading order is maintained
-            print(u)
-            self.print(u)
-            print("END ROUND", self.round)
+            #print(u)
+            #self.print(u)
+            #print("END ROUND", self.round)
             #targetsRemain = False
 
     def setup(self):
@@ -233,11 +243,8 @@ class AOC15:
 
     def AOC15_1(self):
         now = time.time()
-        lines = self.lines
 
         #Setup
-        u = self.setup()
-
         self.out = self.lines.copy()
         for l in range(len(self.out)):
             self.out[l] = self.out[l].replace("E",".")
@@ -249,25 +256,65 @@ class AOC15:
         #   Find for shortest path/s
         #   Make step
 
-        self.print(u)
-        self.combat(lines, u)
+        u = self.setup()
+        #self.print(u)
+        self.combat(u)
 
         sumHP = 0
         for i in u:
-            if i[3] == "g" or i[3] == "e":
-                sumHP += i[2]
+            sumHP += i[2]
         print("AOC15_1: Result:",self.round, sumHP,self.round * sumHP)
         print("Time taken: " + str(time.time() - now))
 
     def AOC15_2(self):
         now = time.time()
 
-        print("AOC15_2: ")
+        u = self.setup()
+        self.out = self.lines.copy()
+        for l in range(len(self.out)):
+            self.out[l] = self.out[l].replace("E",".")
+            self.out[l] = self.out[l].replace("G",".")
+
+        minBoost = 1
+        maxBoost = 10
+
+        #Try a boost in factors of 10.
+        while True:
+            u = self.setup()
+            self.elfDied = False
+            self.combat(u, maxBoost, True)
+            if self.elfDied == True:
+                print("Elf Died", maxBoost)
+                minBoost += 10
+                maxBoost += 10
+            else:
+                print("No Elfs Died", maxBoost)
+                break
+
+        #Asnwer must lie between min and max.
+        while True:
+            u = self.setup()
+            self.elfDied = False
+            self.combat(u, minBoost, True)
+            if self.elfDied == True:
+                print("Elf Died", minBoost)
+                minBoost += 1
+            else:
+                print("No Elfs Died", minBoost)
+                break
+
+        sumHP = 0
+        for i in u:
+            sumHP += i[2]
+        print("AOC15_2: Result:",self.round, sumHP,self.round * sumHP)
         print("Time taken: " + str(time.time() - now))
 
-aoc15 = AOC15("Inputs/AOC15_1.txt")
+
+#aoc15 = AOC15("Inputs/AOC15_1.txt")
+aoc15 = AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Inputs\AOC15_1.txt")
+#aoc15 = AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC15_2.txt")
 #aoc15 = AOC15("Test/AOC15_7.txt")
 #aoc15 = AOC15(r"C:\Users\michelle\python\AOC2018-master\AdventOfCode2018\Test\AOC15_1.txt")
 aoc15.AOC15_1()
-#aoc15.AOC15_2()
+aoc15.AOC15_2()
 del aoc15
